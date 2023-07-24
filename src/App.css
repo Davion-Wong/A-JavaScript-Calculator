@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+html, body {
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  margin: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#main-container {
+  min-height: 100%;
+  display: flex; 
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+#header {
+  font-size: 34px;
+  text-align: center;
+  padding: 15px 0;
+  height: 10vh;
+}
+
+#display {
+  grid-area: display;
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: right;
+  font-size: 2em;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+#input-string, #result {
+  display: flex;
+  font-size: 1em;
+  line-height: 1.2em;
+  font-family: 'Digital-7', sans-serif;
+}
+
+#button-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 40vh;
+}
+
+footer {
+
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+  font-size: 1.5em;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  opacity: 0.7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:active {
+  transform: scale(0.9);
+}
+
+#clear, #equals {
+  grid-row: span 2;
+  height: 130px;
+}
+
+#zero {
+  grid-column: span 2;
+  width: 130px;
+}
+
+button[id^="add"], button[id^="subtract"], button[id^="multiply"], button[id^="divide"] {
+  background-color: orange;
+}
+
+button[id^="zero"], button[id^="one"], button[id^="two"], button[id^="three"], button[id^="four"], button[id^="five"], button[id^="six"], button[id^="seven"], button[id^="eight"], button[id^="nine"], #decimal {
+  background-color: #888;
+}
+
+#clear, #equals {
+  background-color: #f93;
+}
+
+div {
+  display: grid;
+  grid-template-areas:
+    "display display display display"
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three subtract"
+    "zero decimal equals add"
+    "clear clear . .";
+  gap: 10px;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: 'Digital-7';
+  src: url('Digital-7.woff2') format('woff2'),
+      url('Digital-7.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
